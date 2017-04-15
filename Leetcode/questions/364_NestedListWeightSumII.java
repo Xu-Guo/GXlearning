@@ -54,3 +54,46 @@ public class Solution {
         return total;
     }
 }
+
+//DFS two pass solution
+public class Solution {
+    public int depthSumInverse(List<NestedInteger> nestedList) {
+        if(nestedList == null || nestedList.size()==0){
+            return 0;
+        }
+        int h = getDepth(nestedList);
+        int sum = getSum(nestedList, h);
+        return sum;
+    }
+    
+    private int getSum(List<NestedInteger> list, int h){
+        int sum = 0;
+        if(list == null || list.size() == 0){
+            return sum;
+        }
+        
+        for(NestedInteger ni : list){
+            if(ni.isInteger()){
+                sum += ni.getInteger() * h;
+            }else{
+                sum += getSum(ni.getList(), h-1);
+            }
+        }
+        return sum;
+    }
+    
+    private int getDepth(List<NestedInteger> list){
+        if(list == null || list.size() == 0){
+            return 0;
+        }
+        int max = 0;
+        for(NestedInteger ni : list){
+            if(ni.isInteger()){
+                max = Math.max(max, 1);
+            }else{
+                max = Math.max(max, getDepth(ni.getList())+1);
+            }
+        }
+        return max;
+    }
+}
