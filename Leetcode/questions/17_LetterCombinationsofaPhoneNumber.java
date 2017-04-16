@@ -35,15 +35,15 @@ public class Solution {
     }
     
     private void dfs(List<String> res, String digits, String[] map, int start, StringBuilder sb){
-        if(start == digits.length()){
+        if(start == digits.length()){//已经加入了最后一个digit对应的字母， 返回
             res.add(sb.toString());
             return;
         }
-        String str = map[digits.charAt(start) - '0'];
-        for(int i=0; i<str.length(); i++){
-            sb.append(str.charAt(i));
+        String str = map[digits.charAt(start) - '0'];//拿到map的String
+        for(int i=0; i<str.length(); i++){//mapping String中的每一个字母都是一个分支
+            sb.append(str.charAt(i));//选择一条分支
             dfs(res, digits, map, start+1, sb);
-            sb.deleteCharAt(sb.length()-1);
+            sb.deleteCharAt(sb.length()-1);//上面的递归函数返回，要进入下个分支之前，去掉之前分支加入的字符
         }
     }
 }
