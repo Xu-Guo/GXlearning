@@ -22,8 +22,8 @@ class MergeSort {
         }
         
         int mid = left + (right - left) / 2;
-        mergeSortHelper(nums, temp, left, mid);//partition left
-        mergeSortHelper(nums, temp, mid+1, right);//partition right
+        mergeSortHelper(nums, temp, left, mid);
+        mergeSortHelper(nums, temp, mid+1, right);
         merge(nums, temp, left, mid, right);//merge left and right
     }
     

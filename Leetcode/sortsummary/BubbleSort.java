@@ -10,3 +10,9 @@ public void bubbleSort(int[] nums){
         }
     }
 }
+
+private void swap(int[] nums, int i, int j){
+    int temp = nums[j];
+    nums[j] = nums[i];
+    nums[i] = temp;
+}
