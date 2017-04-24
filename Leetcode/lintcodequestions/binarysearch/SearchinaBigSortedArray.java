@@ -6,6 +6,8 @@
  *      public int get(int index);
  * }
  */
+//1.find the right boundery by double the k, then find the first num <= target
+//array may contains duplicate number
 public class Solution {
     /**
      * @param reader: An instance of ArrayReader.

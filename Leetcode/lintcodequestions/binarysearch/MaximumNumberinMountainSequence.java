@@ -21,8 +21,8 @@ public class Solution {
         
         int l = 1;
         int r = nums.length -2;
-        while(l+1 < r){
-            int mid = l + (r - l)/2;
+        while(l + 1 < r){
+            int mid = l + (r - l) / 2;
             if(nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]){
                 return nums[mid];
             }else if(nums[mid] < nums[mid - 1]){
@@ -32,7 +32,7 @@ public class Solution {
             }
         }
         
-        return nums[l];
+
         // if(nums[r] > nums[l]){
         //     return nums[r];
         // }else{

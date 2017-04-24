@@ -13,7 +13,7 @@ public class Solution {
         int l = 0;
         int r = nums.length - 1;
         while(l + 1 < r){
-            int mid = l + (r - l)/2;
+            int mid = l + (r - l) / 2;
             if(nums[mid] <= target){
                 l = mid;
             }else{
