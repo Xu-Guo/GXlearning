@@ -1,5 +1,5 @@
 /*
-
+递归开始先将传入的list加入res，每一次循环会把所有以nums[start]开头的subset加入res
 */
 public class Solution {
     public List<List<Integer>> subsets(int[] nums) {

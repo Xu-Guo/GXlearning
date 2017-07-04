@@ -49,3 +49,53 @@ public class Solution {
         return list;
     }
 }
+
+//new dfs
+public class Solution {
+    public List<String> letterCombinations(String digits) {
+        String[] dict = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        List<String> res = new ArrayList<>();
+        
+        if (digits == null || digits.length() == 0){
+            return res;    
+        }
+        helper(res, "", digits, 0, dict);
+        return res;
+    }
+    
+    private void helper(List<String> res, String prefix, String digits, int start, String[] dict){
+        if (prefix.length() == digits.length()){
+            res.add(prefix);
+            return;
+        }
+        int digit = digits.charAt(start) - '0';
+        String letters = dict[digit];
+        for (int i = 0; i < letters.length(); i++){
+            helper(res, prefix + letters.charAt(i), digits, start + 1, dict);
+        }
+    }
+}
+
+//new bfs
+public class Solution {
+    public List<String> letterCombinations(String digits) {
+        LinkedList<String> res = new LinkedList<>();
+        if (digits == null || digits.length() == 0){
+            return res;
+        }
+        res.add("");
+        String[] dict = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        for (int i = 0; i < digits.length(); i++){
+            int digit = digits.charAt(i) - '0';
+            String letters = dict[digit];
+            int size = res.size();
+            for (int j = 0; j < size; j++){
+                String prefix = res.poll();
+                for (char c : letters.toCharArray()){
+                    res.add(prefix + c);
+                }
+            }
+        }
+        return res;
+    }
+}
