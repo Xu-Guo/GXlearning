@@ -21,7 +21,7 @@ public class Solution {
                     cur = next + 1;
                 }
             }
-            if (cur > 0){//if there is a solution, cur will le larger than 0
+            if (cur > 0){//if there is a solution, cur will be larger than 0
                 res = Math.min(res, cur);
             }
         }

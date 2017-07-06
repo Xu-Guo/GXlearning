@@ -56,3 +56,27 @@ public class Solution {
         return max;
     }
 }
+
+
+public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null || s.length() == 0){
+            return 0;
+        }
+        Set<Character> set = new HashSet<>();
+        int end = 0;
+        int len = 1;
+        for (int start = 0; start < s.length(); start++){
+            while (end < s.length()){
+                if (set.contains(s.charAt(end))){
+                    break;
+                }
+                set.add(s.charAt(end));
+                len = Math.max(len, end - start + 1);
+                end++;
+            }
+            set.remove(s.charAt(start));
+        }
+        return len;
+    }
+}
